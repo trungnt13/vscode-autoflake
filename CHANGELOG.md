@@ -26,6 +26,12 @@ All notable changes to _vscode-autoflake_ will be documented in this file.
 
 - Fixed URL path to usage image in `README.md`
 
+## [0.0.3] - 2021-01-25
+
+### Fixed
+
+- Silly bug, I editted the wrong file
+
 <!-- ### Removed
 ### Added
 ### Changed
