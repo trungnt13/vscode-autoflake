@@ -1,7 +1,7 @@
 {
   "name": "autoflake",
-  "displayName": "autoflake",
-  "description": "Remove unused imports in Python",
+  "displayName": "Autoflake - Remove unused Python imports",
+  "description": "Remove unused and re-organize imports in Python",
   "publisher": "TrungNgo",
   "homepage": "https://github.com/trungnt13/vscode-autoflake",
   "repository": {"github": "https://github.com/trungnt13/vscode-autoflake"},
