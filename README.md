@@ -12,7 +12,7 @@ autoflake also removes useless `pass` statements.
 
 ## Usage
 
-![Usage](./usage.png)
+![Usage](https://raw.githubusercontent.com/trungnt13/vscode-autoflake/main/usage.png)
 
 ## License
 

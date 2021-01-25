@@ -3,7 +3,9 @@
   "displayName": "autoflake",
   "description": "Remove unused imports in Python",
   "publisher": "TrungNgo",
-  "version": "0.0.1",
+  "homepage": "https://github.com/trungnt13/vscode-autoflake",
+  "author": {"name": "Trung Ngo"},
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.52.0"
   },
@@ -26,6 +28,18 @@
       {
         "title": "Autoflake",
         "properties": {
+          "autoflake.verbose": {
+            "type": "boolean",
+            "default": false,
+            "scope": "application",
+            "description": "Show executed command in vscode window"
+          },
+          "autoflake.sortImports": {
+            "type": "boolean",
+            "default": false,
+            "scope": "application",
+            "description": "Sorting the imports after the cleaning"
+          },
           "autoflake.removeAllUnusedImports": {
             "type": "boolean",
             "default": true,
