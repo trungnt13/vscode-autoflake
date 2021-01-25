@@ -4,6 +4,7 @@
   "description": "Remove unused imports in Python",
   "publisher": "TrungNgo",
   "homepage": "https://github.com/trungnt13/vscode-autoflake",
+  "repository": {"github": "https://github.com/trungnt13/vscode-autoflake"},
   "author": {"name": "Trung Ngo"},
   "version": "0.0.2",
   "engines": {
