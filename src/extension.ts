@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
     // prepare the isort script
     let isort_script = '';
     if (sort_imports && isortPath.length > 0) {
-      isort_script = `& ${isortPath} ${isortArgs.join(' ')} ${filepath}`;
+      isort_script = `&& ${isortPath} ${isortArgs.join(' ')} ${filepath}`;
     }
     // skip if not python file
     const exec_script = `${autoflake} --in-place \
@@ -38,22 +38,21 @@ export function activate(context: vscode.ExtensionContext) {
       ${remove_vars ? '--remove-unused-variables' : ' '} \
       ${remove_duplicate ? '--remove-duplicate-keys' : ' '} \
       ${filepath} ${isort_script}`;
-    // execute the script in child process
-    child_process.exec(exec_script,
-      (err, stdout, stderr) => {
-        // show running script
-        if (verbose) {
-          vscode.window.showInformationMessage(exec_script);
-          if (stdout.length > 0) {
-            vscode.window.showInformationMessage('stdout: ' + stdout);
-          }
+    try{
+      // execute the script in child process
+      const stdout = child_process.execSync(exec_script).toString();
+      // show running script
+      if (verbose) {
+        vscode.window.showInformationMessage(exec_script);
+        if (stdout.length > 0) {
+          vscode.window.showInformationMessage('stdout: ' + stdout);
         }
-        if (err) {
-          vscode.window.showErrorMessage(stderr);
-        }
-      });
+      }
+    } catch (err) {
+      vscode.window.showErrorMessage(err.stderr.toString());
+    }
   }
-
+  
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
