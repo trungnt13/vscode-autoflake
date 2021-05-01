@@ -4,8 +4,12 @@
   "description": "Remove unused and re-organize imports in Python",
   "publisher": "TrungNgo",
   "homepage": "https://github.com/trungnt13/vscode-autoflake",
-  "repository": {"github": "https://github.com/trungnt13/vscode-autoflake"},
-  "author": {"name": "Trung Ngo"},
+  "repository": {
+    "github": "https://github.com/trungnt13/vscode-autoflake"
+  },
+  "author": {
+    "name": "Trung Ngo"
+  },
   "version": "0.0.3",
   "engines": {
     "vscode": "^1.52.0"
@@ -90,5 +94,9 @@
     "mocha": "^8.1.3",
     "typescript": "^4.1.2",
     "vscode-test": "^1.4.1"
+  },
+  "dependencies": {
+    "del": "^6.0.0",
+    "tempy": "^1.0.1"
   }
 }
