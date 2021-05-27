@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
     const remove_duplicate = config.get('removeDuplicateKeys');
     const autoflake = config.get('path');
     // get the activate editor
-    const filepath = textEditor.document.uri.path;
+    const filepath = textEditor.document.uri.fsPath;
     // skip if not python file
     if (textEditor.document.languageId != 'python') {
       vscode.window.showErrorMessage('Skip autoflake, not python script.')
@@ -30,14 +30,14 @@ export function activate(context: vscode.ExtensionContext) {
     // prepare the isort script
     let isort_script = '';
     if (sort_imports && isortPath.length > 0) {
-      isort_script = `& ${isortPath} ${isortArgs.join(' ')} ${filepath}`;
+      isort_script = `& ${isortPath} ${isortArgs.join(' ')} "${filepath}"`;
     }
     // skip if not python file
     const exec_script = `${autoflake} --in-place \
       ${all_imports ? '--remove-all-unused-imports' : ' '} \
       ${remove_vars ? '--remove-unused-variables' : ' '} \
       ${remove_duplicate ? '--remove-duplicate-keys' : ' '} \
-      ${filepath} ${isort_script}`;
+      "${filepath}" ${isort_script}`;
     // execute the script in child process
     child_process.exec(exec_script,
       (err, stdout, stderr) => {
